@@ -3,7 +3,8 @@ import pyperclip
 
 from app.cert_replacer import replace_ssl_cert
 from app.certbot_parser import parse_certbot_manual_challenge
-from config.default_text import CMD_COPIED, COPY_CMD_0, COPY_CMD_1
+from config.default_text import COPY_CMD_0, COPY_CMD_1
+from config import msgs
 from layouts import main_layout
 
 
@@ -27,17 +28,17 @@ def main():
                     values['domain_input']
                 )
             )
-            sg.popup(CMD_COPIED)
+            sg.popup(msgs.CMD_COPIED)
 
         elif event == "copy_btn_1":
             pyperclip.copy(
                 COPY_CMD_0(values['domain_input'])
             )
-            sg.popup(CMD_COPIED)
+            sg.popup(msgs.CMD_COPIED)
 
         elif event == "copy_btn_2":
             pyperclip.copy(COPY_CMD_1)
-            sg.popup(CMD_COPIED)
+            sg.popup(msgs.CMD_COPIED)
 
         elif event == "domain_input" or event == "email_input":
             window['resulting_cmd'].update(
@@ -47,7 +48,7 @@ def main():
 
         elif event == "Replace":
             replace_ssl_cert(values["cert_input"], values["key_input"], values["file"])
-            sg.popup("Certificate replaced successfully!")
+            sg.popup(msgs.CERT_REPLACED)
             break
 
     window.close()

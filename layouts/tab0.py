@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 
 from app.certbot_parser import parse_certbot_manual_challenge
-from config.default_text import CERTBOT_PROMPT0, CERTBOT_PROMPT1, DEFAULT_EMAIL, DEFAULT_DOMAIN
+from config.default_text import DEFAULT_EMAIL, DEFAULT_DOMAIN
 
 col0 = sg.Col([
     [sg.Frame(
@@ -41,11 +41,22 @@ col1 = sg.Col([
     [sg.Frame(
         "2) Run the command following the steps",
         [
-            [sg.Text(CERTBOT_PROMPT0, font="Consolas 12", text_color="white")],
+            [sg.Text(
+                "1. Create a folder\n"
+                "2. Right click inside it\n"
+                "3. Open a linux shell there\n",
+                font="Consolas 12",
+                text_color="white"
+            )],
             [
                 sg.Push(), sg.Button('4. Copy command to Clipboard', key='copy_btn_0'), sg.Push()
             ],
-            [sg.Text(CERTBOT_PROMPT1, font="Consolas 12", text_color="white")]
+            [sg.Text(
+                "5. Paste and run the command\n"
+                "6. Follow the instructions",
+                font="Consolas 12",
+                text_color="white"
+            )]
         ],
         pad=(25, 0),
         title_color='yellow',

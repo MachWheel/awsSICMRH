@@ -1,19 +1,5 @@
 DEFAULT_DOMAIN = "helloworld.com"
-
 DEFAULT_EMAIL = "email@address.com"
-
-CERTBOT_PROMPT0 = """
-1. Create a folder\n
-2. Right click inside it\n
-3. Open a linux shell there\n
-"""
-
-CERTBOT_PROMPT1 = """
-5. Paste and run the command\n
-6. Follow the instructions
-"""
-
-CMD_COPIED = "Command copied to clipboard.\nPaste and run it at the linux shell."
 
 
 def COPY_CMD_0(domain_input: str):
@@ -24,17 +10,6 @@ def COPY_CMD_0(domain_input: str):
 
 
 COPY_CMD_1 = "sudo nano privkey.pem\n"
-
-
-def AAAACOPY_PROMPT(domain_input: str):
-    return f"""
-1. cd live/{domain_input}
-2. sudo nano cert.pem
-3. copy the SSL certificate and paste at tab 1
-4. sudo nano privkey.pem
-5. copy SSL private key and paste at tab 2
-"""
-
 
 DEFAULT_CERT = """-----BEGIN CERTIFICATE-----
 BmeBDAECATA3BgsrBgEEAYLfEwEBATAoMCYGCCsGAQUFBwIBFhpodHRwOi8vY3Bz
